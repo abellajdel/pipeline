@@ -20,12 +20,10 @@ var server = net.createServer(function (socket) {
 fs.readFile('./config/send_config', function (err, data) {
     if (err) throw err;
     var config_array = JSON.parse(data);
-    var ip_addr;
     var port;
-    ip_addr = config_array["ip_addr"];
     port = config_array["port"];
-    console.log("Listening on the ip: "+config_array["ip_addr"]+" and the port: "+config_array["port"]);
-    server.listen(port, ip_addr);
+    console.log("Listening on the port: "+config_array["port"]);
+    server.listen(port);
 });
 
 
